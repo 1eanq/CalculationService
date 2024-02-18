@@ -1,0 +1,70 @@
+@font-face {
+    font-family: 'MyFont';
+    src: url('../fonts/minecraft.ttf') format('truetype');
+}
+html {
+    font-family: 'MyFont', sans-serif;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: darkslategray;
+    padding: 15px 10px;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+}
+body {
+    text-align: center;
+}
+label {
+    font-family: 'MyFont', sans-serif;
+    background-color: darkgreen;
+    border-color: black;
+    border-width: thick;
+    color: white;
+    font-size: 70px;
+    text-align: end;
+    outline-style: none;
+}
+
+nav {
+    /* Добавим фоновый цвет для нашего меню */
+    background: darkslategray;
+    /* Выставим высоту */
+    height: 10px;
+    /* Уберем точки у li элементов */
+    list-style-type: none;
+    /* добавим отступ, чтобы крайние значения меню не были прижаты в плотную к границам меню */
+    padding: 20px;
+    /* Используем flexbox */
+    display: flex;
+    justify-content: space-around;
+    /* Дополнительно сделаем вертикальное выравнивание */
+    align-items: center;
+}
+a {
+    color: white;
+    text-decoration: none;
+}
+
+input {
+    font-family: 'MyFont', sans-serif;
+    background-color: darkgreen;
+    border-color: black;
+    border-width: thick;
+    color: white;
+    font-size: 70px;
+    text-align: end;
+    outline-style: none;
+}
