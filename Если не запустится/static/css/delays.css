@@ -1,0 +1,83 @@
+@font-face {
+    font-family: 'MyFont';
+    src: url('../fonts/minecraft.ttf') format('truetype');
+}
+html {
+    font-family: 'MyFont', sans-serif;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: darkslategray;
+    padding: 15px 10px;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+}
+body {
+    text-align: center;
+}
+
+
+nav {
+    /* Добавим фоновый цвет для нашего меню */
+    background: darkslategray;
+    /* Выставим высоту */
+    height: 10px;
+    /* Уберем точки у li элементов */
+    list-style-type: none;
+    /* добавим отступ, чтобы крайние значения меню не были прижаты в плотную к границам меню */
+    padding: 20px;
+    /* Используем flexbox */
+    display: flex;
+    justify-content: space-around;
+    /* Дополнительно сделаем вертикальное выравнивание */
+    align-items: center;
+}
+a {
+    color: white;
+    text-decoration: none;
+}
+
+form {
+    display: flex;
+}
+
+input {
+    background-color: darkgreen;
+    border-color: black;
+    border-width: thick;
+    color: white;
+    font-size: 20px;
+    text-align: end;
+    outline-style: none;
+    font-family: 'MyFont', sans-serif;
+}
+
+form.form-example {
+    display: table;
+}
+
+div.form-example {
+    display: table-row;
+}
+
+label,
+input {
+    display: table-cell;
+    margin-bottom: 10px;
+}
+
+label {
+    padding-right: 10px;
+}
