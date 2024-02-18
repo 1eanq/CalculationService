@@ -1,11 +1,12 @@
 # Используем образ Golang для сборки приложения
-FROM golang:latest AS builder
+FROM golang:1.17-alpine AS builder
 
 # Устанавливаем рабочую директорию внутри контейнера
 WORKDIR /app
 
-# Копируем файл go.mod
+# Копируем файл go.mod и go.sum
 COPY go.mod ./
+COPY go.sum ./
 
 # Загружаем зависимости
 RUN go mod download
