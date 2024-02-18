@@ -3,7 +3,7 @@ package database
 import (
 	"database/sql"
 	"fmt"
-	_ "github.com/mattn/go-sqlite3"
+	_ "github.com/go-sql-driver/mysql"
 	"log"
 	"strings"
 )
@@ -22,7 +22,7 @@ func IDConstructor(exp string) string {
 
 func CreateDatabase() {
 	// Открытие соединения с базой данных
-	db, err := sql.Open("sqlite3", "./database.db")
+	db, err := sql.Open("mysql", "./database.db")
 	if err != nil {
 		log.Fatal(err)
 	}
