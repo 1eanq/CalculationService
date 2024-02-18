@@ -3,10 +3,12 @@ package database
 import (
 	"database/sql"
 	"fmt"
+	_ "github.com/mattn/go-sqlite3"
 	"log"
 	"strings"
 )
 
+// Функция для создания ID запроса
 func IDConstructor(exp string) string {
 	exp = strings.ReplaceAll(exp, " ", "")
 	exp = strings.ReplaceAll(exp, "(", "")
@@ -19,14 +21,14 @@ func IDConstructor(exp string) string {
 }
 
 func CreateDatabase() {
-	// Открываем соединение с базой данных
+	// Открытие соединения с базой данных
 	db, err := sql.Open("sqlite3", "./database.db")
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer db.Close()
 
-	// Создаем таблицу
+	// Создание таблицы
 	createTable := `
         CREATE TABLE IF NOT EXISTS answers (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -56,8 +58,6 @@ func InsertData(id string, res float64) {
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	fmt.Println("Элемент успешно добавлен в базу данных!")
 }
 
 func FindByID(id string) (float64, bool) {
@@ -73,14 +73,13 @@ func FindByID(id string) (float64, bool) {
 	row := db.QueryRow(query, id)
 
 	// Инициализируем переменные для хранения значений из базы данных
-	var userID int
+	var ID int
 	var res float64
 
 	// Сканируем результаты запроса в переменные
-	err = row.Scan(&userID, &res)
+	err = row.Scan(&ID, &res)
 	if err != nil {
 		if err == sql.ErrNoRows {
-			fmt.Println("Запись не найдена")
 			return 0, false
 		}
 		log.Fatal(err)

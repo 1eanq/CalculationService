@@ -15,7 +15,7 @@ func CalculatorHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Проверяем метод запроса
 	if r.Method != http.MethodPost {
-		http.Error(w, "Ожидается POST-запрос", http.StatusMethodNotAllowed)
+		http.Error(w, "Ожидается выражение", http.StatusMethodNotAllowed)
 		return
 	}
 
@@ -23,6 +23,8 @@ func CalculatorHandler(w http.ResponseWriter, r *http.Request) {
 	exp := r.FormValue("expression")
 	id := database.IDConstructor(exp)
 	_, f := database.FindByID(id)
+
+	//Проверка, был ли запрос с таким же ID
 	if f {
 		w.WriteHeader(http.StatusOK)
 		ans, _ := database.FindByID(id)
@@ -68,5 +70,4 @@ func DelaysHandler(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 		w.Write([]byte("Err "))
 	}
-	fmt.Println(calculator.Addition, calculator.Subtraction, calculator.Multiplication, calculator.Division)
 }

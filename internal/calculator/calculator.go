@@ -121,6 +121,7 @@ func isOperator(char rune) bool {
 	return char == '+' || char == '-' || char == '*' || char == '/'
 }
 
+// Функция для вычисления выражеия
 func evaluatePostfix(tokens []string) (float64, error) {
 	var stack []float64
 
@@ -130,9 +131,12 @@ func evaluatePostfix(tokens []string) (float64, error) {
 			if len(stack) < 2 {
 				return 0, fmt.Errorf("Недостаточно операндов для операции сложения")
 			}
+
+			//Время выполнения операции
 			for i := 0; i < Addition; i++ {
 				time.Sleep(time.Second)
 			}
+
 			result := stack[len(stack)-2] + stack[len(stack)-1]
 			stack = stack[:len(stack)-2]
 			stack = append(stack, result)
@@ -140,9 +144,12 @@ func evaluatePostfix(tokens []string) (float64, error) {
 			if len(stack) < 2 {
 				return 0, fmt.Errorf("Недостаточно операндов для операции вычитания")
 			}
+
+			//Время выполнения операции
 			for i := 0; i < Subtraction; i++ {
 				time.Sleep(time.Second)
 			}
+
 			result := stack[len(stack)-2] - stack[len(stack)-1]
 			stack = stack[:len(stack)-2]
 			stack = append(stack, result)
@@ -150,9 +157,12 @@ func evaluatePostfix(tokens []string) (float64, error) {
 			if len(stack) < 2 {
 				return 0, fmt.Errorf("Недостаточно операндов для операции умножения")
 			}
+
+			//Время выполнения операции
 			for i := 0; i < Multiplication; i++ {
 				time.Sleep(time.Second)
 			}
+
 			result := stack[len(stack)-2] * stack[len(stack)-1]
 			stack = stack[:len(stack)-2]
 			stack = append(stack, result)
@@ -163,9 +173,12 @@ func evaluatePostfix(tokens []string) (float64, error) {
 			if stack[len(stack)-1] == 0 {
 				return 0, fmt.Errorf("Деление на ноль")
 			}
+
+			//Время выполнения операции
 			for i := 0; i < Division; i++ {
 				time.Sleep(time.Second)
 			}
+
 			result := stack[len(stack)-2] / stack[len(stack)-1]
 			stack = stack[:len(stack)-2]
 			stack = append(stack, result)
