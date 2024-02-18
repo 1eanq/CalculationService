@@ -8,6 +8,7 @@ import (
 
 func main() {
 	database.CreateDatabase()
+
 	http.Handle("/static/", http.StripPrefix("/static", http.FileServer(http.Dir("./static"))))
 	http.HandleFunc("/static/calculator", handler.CalculatorHandler)
 	http.HandleFunc("/static/delays", handler.DelaysHandler)
