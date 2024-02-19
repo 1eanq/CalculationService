@@ -1,6 +1,16 @@
 # CalculationService
 # tg для связи: @leanq_ha
 
+## Как запустить
+1. Установить Docker Desktop
+2. Запустить DockerFile
+3. Помолиться
+4. Сервер запускается по адресу http://localhost:8080/static/calculator
+
+##### Если программа не соберется  
+В папке Если не запустится лежит версия, где все функции в одном файле, для ее запуска нужно только прописать  
+```go run CalculatorRabotaet.go```
+
 ## Схема проекта
 ![image](https://github.com/1eanq/CalculationService/assets/153944563/588278d4-f409-45cf-bc99-b2a25e3e7402)
 
