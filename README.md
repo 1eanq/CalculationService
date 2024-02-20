@@ -3,7 +3,9 @@
 
 ## Как запустить
 1. Установить Docker Desktop
-2. Запустить DockerFile
+2. ```
+   docker-compose up --build
+   ```
 3. Помолиться
 4. Сервер запускается по адресу http://localhost:8080/static/calculator
 
