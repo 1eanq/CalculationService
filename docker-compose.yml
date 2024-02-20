@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+    orchestra:
+        container_name: orchestra
+        image: orchestra
+        build:
+            context: "./"
+        ports:
+            - "8080:8080"
+        restart: unless-stopped
+        networks:
+            - pg-network
+        depends_on:
+            pg:
+                condition: service_started
+
+    pg:
+        container_name: expressionist-postgres
+        image: postgres:16.2
+        restart: always
+        environment:
+            POSTGRES_DB: calculator
+            POSTGRES_USER: default
+            POSTGRES_PASSWORD: default
+        volumes:
+            - pgdata:/var/lib/postgresql
+        networks:
+            - pg-network
+
+volumes:
+    pgdata:
+
+networks:
+    pg-network:
+        driver: bridge

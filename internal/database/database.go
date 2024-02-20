@@ -3,9 +3,10 @@ package database
 import (
 	"database/sql"
 	"fmt"
-	_ "github.com/go-sql-driver/mysql"
 	"log"
 	"strings"
+
+	_ "github.com/lib/pq"
 )
 
 // Функция для создания ID запроса
@@ -22,7 +23,7 @@ func IDConstructor(exp string) string {
 
 func CreateDatabase() {
 	// Открытие соединения с базой данных
-	db, err := sql.Open("mysql", "./database.db")
+	db, err := sql.Open("postgres", "host=pg dbname=calculator user=default password=default sslmode=disable")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -31,7 +32,7 @@ func CreateDatabase() {
 	// Создание таблицы
 	createTable := `
         CREATE TABLE IF NOT EXISTS answers (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id SERIAL PRIMARY KEY,
             res REAL
         );
     `

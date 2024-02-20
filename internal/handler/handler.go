@@ -10,8 +10,11 @@ import (
 )
 
 func CalculatorHandler(w http.ResponseWriter, r *http.Request) {
-	tmpl, _ := template.ParseFiles("static/calculator.html")
-	tmpl.Execute(w, "")
+	if r.Method == http.MethodGet {
+		tmpl, _ := template.ParseFiles("./static/calculator.html")
+		tmpl.Execute(w, "")
+		return
+	}
 
 	// Проверяем метод запроса
 	if r.Method != http.MethodPost {
