@@ -47,7 +47,7 @@ func CreateDatabase() {
 
 func InsertData(id string, res float64) {
 	// Открываем соединение с базой данных
-	db, err := sql.Open("mysql", "./database.db")
+	db, err := sql.Open("postgres", "host=pg dbname=calculator user=default password=default sslmode=disable")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -63,7 +63,7 @@ func InsertData(id string, res float64) {
 
 func FindByID(id string) (float64, bool) {
 	// Открываем соединение с базой данных
-	db, err := sql.Open("mysql", "./database.db")
+	db, err := sql.Open("postgres", "host=pg dbname=calculator user=default password=default sslmode=disable")
 	if err != nil {
 		log.Fatal(err)
 	}
